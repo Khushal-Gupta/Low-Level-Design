@@ -1,0 +1,74 @@
+// Functional Requirements
+* User should be able to search for a particular vehicle type, start and end date after selecting a particular city
+* User should be able to pay and reserve the vehicle
+
+// Non-functional requirements
+* Concurrent handling of reservation for single vehicle
+
+
+
+// OBJECTS
+Vehicle --
+Prop :
+id: String,
+registrationNumber: String,
+vehicleType: VehicleType(SCOOT, BIKE, SEDAN, SUV)
+status - ACTIVE, MAINTENANCE, RESERVED, RENTED
+
+Store -
+Prop:
+id: String,
+location: Location
+
+Inventory Item -
+id: String,
+store: Store,
+vehicle: Vehicle
+
+
+Reservation -
+Prop:
+id: String
+pickupTime: LocalDateTime
+dropTime: LocalDateTime
+pickupStore: Store
+dropStore: Store
+
+
+Rentals -
+id: String
+startTime: LocalDate
+endDate: LocalDate
+
+Location -
+lat
+long
+City
+State
+
+
+// Service classes
+StoreManager
+stores: List<Store>
+-----
++ addStore(store: Store): void
+- removeStore(store: Store): void
+
+Inventory Manager
+- inventoryItems: List<InventoryItem>
+- vehicles: List<Vehicle>
+-------
++ addVehicle(vehicle: Vehicle, store: Store): void
++ removeVehicle(vehicle: Vehicle, store: Store): void
++ markReserved(vehicleId: String)
++ markRentedAndRemove(vehicleId: String)
+
+Search Service
++ searchVehicle(vehicleType: VehicleType, location: Location): List<Vehicle>
+
+Rental Service
+
++ createReservation(startTime: LocalDateTime, endTime: LocalDateTime, vehicle: Vehicle, dropStore: DropStore):
++ completeReservation(reservationId: String, paymentStrategy: PaymentStrategy)
++ startRental(reservationId: String)
++ endRental(reservationId: String)

@@ -1,0 +1,4 @@
+-- Board size should be configurable
+-- At start of every game, snake and ladder should be spawned at random places
+-- No of player should be configurable at game start
+-- Game should end when a single player is left
