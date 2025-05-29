@@ -9,6 +9,11 @@ public class Board {
     public Board (int boardSize) {
         this.boardSize = boardSize;
         cells = new Cell[boardSize][boardSize];
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+                cells[row][col] = new Cell();
+            }
+        }
     }
 
     public Integer getEndPosition() {

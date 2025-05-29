@@ -9,6 +9,7 @@ public class Cell {
 
     public Cell() {
         this.id = UUID.randomUUID().toString();
+        this.jumper = Optional.empty();
     }
 
     public void setJumper(Jumper jumper) {
