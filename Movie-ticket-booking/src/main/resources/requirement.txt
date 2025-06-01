@@ -1,0 +1,12 @@
+Functional Requirements -
+
+-- User should be able to search available movies within a city.
+-- User should be able to search shows available for a movie.
+-- Movie show should have a format (2D, 3D).
+-- After user selects a seats, the seats should be blocked for some fixed time and these seats should not be available.
+    to any other users. If user is not able to make a successful payment against these booking, these seats should be unblocked.
+-- If two users select overlapping seats, the latter user should receive an exception when attempting to create a booking.
+-- Seats should have different prices based on their type (e.g., GOLD, SILVER). Each show may have different prices for each seat type.
+
+Non-functional Requirements -
+
